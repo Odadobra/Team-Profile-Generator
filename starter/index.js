@@ -37,14 +37,14 @@ function createEngineer(team) {
 
         {
             type: 'input',
-            name: 'github username',
+            name: 'github',
             message: "What is the engineer's Github username?",
         }
 
 
     ]).then((engineerDetails) => {
         // Initialise Engineer class to create Manager object
-        const engineer = new Engineer(engineerDetails.name, engineerDetails.id, engineerDetails.email, engineerDetails.githubUsername)
+        const engineer = new Engineer(engineerDetails.name, engineerDetails.id, engineerDetails.email, engineerDetails.github)
         team.push(engineer);
         createTeam(team); // at this point we add an engineer to the team array
     });
@@ -128,7 +128,22 @@ function createManager(team) {
             type: 'input',
             name: 'name',
             message: "What is the team manager's name?",
-        }
+        },
+        {
+            type: 'input',
+            name: 'id',
+            message: "What is the team manager's id?",
+        },
+        {
+            type: 'input',
+            name: 'email',
+            message: "What is the team manager's email?",
+        },
+        {
+            type: 'input',
+            name: 'officeNumber',
+            message: "What is the team manager's office number?",
+        },
     ]).then((managerDetails) => {
         // Initialise Manager class to create Manager object
         const manager = new Manager(managerDetails.name, managerDetails.id, managerDetails.email, managerDetails.officeNumber)
